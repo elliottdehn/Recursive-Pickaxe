@@ -1,0 +1,23 @@
+[11:48:10] [main/INFO]: Setting user: ForgeDevName
+[11:48:11] [Client thread/INFO]: LWJGL Version: 2.9.1
+[11:48:15] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Recursive Pickaxe
+[11:48:16] [Sound Library Loader/INFO]: Sound engine started
+[11:48:16] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[11:48:16] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[11:48:16] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Recursive Pickaxe
+[11:48:16] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[11:48:17] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[11:48:17] [Sound Library Loader/INFO]: Sound engine started
+[11:48:20] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[11:48:20] [Server thread/INFO]: Generating keypair
+[11:48:21] [Server thread/INFO]: Preparing start region for level 0
+[11:48:21] [Server thread/INFO]: Changing view distance to 12, from 10
+[11:48:21] [Server thread/INFO]: ForgeDevName[local:E:58ec22eb] logged in with entity id 0 at (-1160.684404001161, 59.23801711300863, 101.40146406412619)
+[11:48:22] [Server thread/INFO]: ForgeDevName joined the game
+[11:49:36] [Client thread/INFO]: Stopping!
+[11:49:36] [Server thread/INFO]: Stopping server
+[11:49:36] [Server thread/INFO]: Saving players
+[11:49:36] [Server thread/INFO]: Saving worlds
+[11:49:36] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[11:49:36] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[11:49:36] [Server thread/INFO]: Saving chunks for level 'New World'/The End

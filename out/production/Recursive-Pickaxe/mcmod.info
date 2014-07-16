@@ -1,0 +1,21 @@
+[
+{
+    "modid": "RecursivePickaxe",
+    "name": "Recursive Pickaxe",
+    "description": "Pawd's first mod.",
+    "version": "0.1",
+    "mcversion": "1.7.10",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+        "pawd"
+    ],
+    "credits": "Pahimar for teachings",
+    "logoFile": "",
+    "screenshots": [
+    ],
+    "parent": "",
+    "dependencies": [
+    ]
+}
+]
