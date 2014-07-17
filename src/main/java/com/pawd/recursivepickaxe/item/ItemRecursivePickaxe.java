@@ -10,9 +10,9 @@ import net.minecraft.item.ItemStack;
 public class ItemRecursivePickaxe extends ItemRPTool
 {
 
-    public ItemRecursivePickaxe(ToolMaterial toolMaterial)
+    public ItemRecursivePickaxe()
     {
-        super(2, toolMaterial, BlockReference.BLOCKS_PICKAXE);
+        super(2, ToolMaterial.EMERALD, BlockReference.BLOCKS_PICKAXE);
         this.setUnlocalizedName("recursivePickaxe");
     }
 

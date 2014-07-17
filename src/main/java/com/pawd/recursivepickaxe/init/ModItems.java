@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems
 {
-    public static final ItemRPTool recursivePickaxe = new ItemRecursivePickaxe(Item.ToolMaterial.EMERALD);
+    public static final ItemRecursivePickaxe recursivePickaxe = new ItemRecursivePickaxe();
 
     public static void init()
     {
