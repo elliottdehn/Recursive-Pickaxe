@@ -7,21 +7,24 @@ The assetDir is deprecated!  Use runDir instead! runDir set to eclipse/assets/..
  R4wk, ZeuX, IngisKahn      
  MCP Data version : unknown
 ****************************
-:extractUserDev
-:extractNatives
+:extractUserDev UP-TO-DATE
+:extractNatives UP-TO-DATE
 :genSrgs SKIPPED
 :getAssetsIndex
 :getAssets
 :makeStartwarning: [options] bootstrap class path not set in conjunction with -source 1.6
 1 warning
 
-:downloadMcpTools
+:downloadMcpTools UP-TO-DATE
 :downloadClient SKIPPED
 :downloadServer SKIPPED
 :mergeJars SKIPPED
 :deobfuscateJar SKIPPED
 :decompile SKIPPED
-:processSources SKIPPED
+:processSources
+Injecting fml files
+Applying fml patches
+Applying forge patches
 :remapJar SKIPPED
 :extractMinecraftSrc SKIPPED
 :recompMinecraft SKIPPED
@@ -30,4 +33,4 @@ The assetDir is deprecated!  Use runDir instead! runDir set to eclipse/assets/..
 
 BUILD SUCCESSFUL
 
-Total time: 26.711 secs
+Total time: 22.213 secs
