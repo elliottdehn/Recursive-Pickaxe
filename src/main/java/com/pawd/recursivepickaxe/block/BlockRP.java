@@ -1,6 +1,6 @@
 package com.pawd.recursivepickaxe.block;
 
-import com.pawd.recursivepickaxe.creativetab.CreativeTabRC;
+import com.pawd.recursivepickaxe.creativetab.CreativeTabRP;
 import com.pawd.recursivepickaxe.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,7 +13,7 @@ public class BlockRP extends Block
     public BlockRP(Material material)
     {
         super(material);
-        this.setCreativeTab(CreativeTabRC.RC_TAB);
+        this.setCreativeTab(CreativeTabRP.RP_TAB);
     }
 
     public BlockRP()
