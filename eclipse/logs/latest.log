@@ -1,29 +1,11 @@
-[16:04:49] [main/INFO]: Setting user: ForgeDevName
-[16:04:50] [Client thread/INFO]: LWJGL Version: 2.9.1
-[16:04:53] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Recursive Pickaxe
-[16:04:54] [Sound Library Loader/INFO]: Sound engine started
-[16:04:55] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[16:04:55] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[16:04:55] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Recursive Pickaxe
-[16:04:55] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[16:04:55] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[16:04:56] [Sound Library Loader/INFO]: Sound engine started
-[16:04:59] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
-[16:04:59] [Server thread/INFO]: Generating keypair
-[16:05:00] [Server thread/INFO]: Preparing start region for level 0
-[16:05:00] [Server thread/INFO]: Changing view distance to 12, from 10
-[16:05:00] [Server thread/INFO]: ForgeDevName[local:E:2a288615] logged in with entity id 0 at (-1170.1648411873148, 57.87501570350217, 100.99483098902276)
-[16:05:00] [Server thread/INFO]: ForgeDevName joined the game
-[16:05:01] [Server thread/INFO]: Saving and pausing game...
-[16:05:01] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
-[16:05:01] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
-[16:05:01] [Server thread/INFO]: Saving chunks for level 'New World'/The End
-[16:05:21] [Server thread/INFO]: [ForgeDevName: Set own game mode to Survival Mode]
-[16:05:21] [Client thread/INFO]: [CHAT] Your game mode has been updated
-[16:05:29] [Client thread/INFO]: Stopping!
-[16:05:29] [Server thread/INFO]: Stopping server
-[16:05:29] [Server thread/INFO]: Saving players
-[16:05:29] [Server thread/INFO]: Saving worlds
-[16:05:29] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
-[16:05:29] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
-[16:05:29] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[21:40:05] [main/INFO]: Setting user: ForgeDevName
+[21:40:06] [Client thread/INFO]: LWJGL Version: 2.9.1
+[21:40:11] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Recursive Pickaxe
+[21:40:12] [Sound Library Loader/INFO]: Sound engine started
+[21:40:13] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[21:40:13] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[21:40:13] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Recursive Pickaxe
+[21:40:13] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[21:40:14] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[21:40:14] [Sound Library Loader/INFO]: Sound engine started
+[21:40:19] [Client thread/INFO]: Stopping!

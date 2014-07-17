@@ -7,11 +7,27 @@ The assetDir is deprecated!  Use runDir instead! runDir set to eclipse/assets/..
  R4wk, ZeuX, IngisKahn      
  MCP Data version : unknown
 ****************************
-:ideaModule
-:ideaProject
-:ideaWorkspace
-:idea
+:extractUserDev
+:extractNatives
+:genSrgs SKIPPED
+:getAssetsIndex
+:getAssets
+:makeStartwarning: [options] bootstrap class path not set in conjunction with -source 1.6
+1 warning
+
+:downloadMcpTools
+:downloadClient SKIPPED
+:downloadServer SKIPPED
+:mergeJars SKIPPED
+:deobfuscateJar SKIPPED
+:decompile SKIPPED
+:processSources SKIPPED
+:remapJar SKIPPED
+:extractMinecraftSrc SKIPPED
+:recompMinecraft SKIPPED
+:repackMinecraft SKIPPED
+:setupDecompWorkspace
 
 BUILD SUCCESSFUL
 
-Total time: 9.313 secs
+Total time: 26.711 secs
