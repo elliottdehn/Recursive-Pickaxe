@@ -29,35 +29,6 @@ public class ItemPawdiumPickaxe extends ItemPDTool
     @Override
     public boolean canHarvestBlock(Block block, ItemStack stack)
     {
-/* ========= MEKANISM STYLE ==========*/
-/*      int hardness = 0;
-        if(block == Blocks.obsidian)
-        {
-            hardness = 3;
-        }
-        if(block == Blocks.diamond_block || block == Blocks.diamond_ore
-           || block == Blocks.gold_block || block == Blocks.gold_ore
-           || block == Blocks.redstone_ore || block == Blocks.lit_redstone_ore)
-        {
-            hardness = 2;
-        }
-        if(block == Blocks.iron_block || block == Blocks.iron_ore
-           || block == Blocks.lapis_block || block == Blocks.lapis_ore)
-        {
-            hardness = 1;
-        }
-        if(hardness != 0)
-        {
-            return toolMaterial.getHarvestLevel() >= hardness;
-        }
-        else
-        {
-            if(block.getMaterial() == Material.rock) return true;
-        }
-
-        return block.getMaterial() == Material.iron; */
-
-/* ====== SIMPLE, HARDCODED STYLE ====== */
         if(block.getMaterial() == Material.rock) return true;
         return block.getMaterial() == Material.iron;
     }
