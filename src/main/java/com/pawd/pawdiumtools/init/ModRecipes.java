@@ -18,5 +18,14 @@ public class ModRecipes
                         'X', ModItems.pawdium,
                         'Y', Items.stick
                 });
+
+        GameRegistry.addShapedRecipe(new ItemStack(ModItems.pawdiumAxe), new Object[]
+                {
+                        "XX ",
+                        "XY ",
+                        " Y ",
+                        'X', ModItems.pawdium,
+                        'Y', Items.stick
+                });
     }
 }
