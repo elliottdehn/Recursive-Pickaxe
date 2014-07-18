@@ -1,6 +1,7 @@
 package com.pawd.pawdiumtools.item;
 
 import com.pawd.pawdiumtools.reference.BlockReference;
+import com.pawd.pawdiumtools.utility.LogHelper;
 import com.pawd.pawdiumtools.utility.NBTHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -70,7 +71,7 @@ public class ItemPawdiumPickaxe extends ItemPDTool
             Block block = world.getBlock(x,y,z);
             EntityPlayerMP mplayer = (EntityPlayerMP) player;
 
-            if(block == Blocks.iron_ore)
+            if(block.getUnlocalizedName().toLowerCase().contains("ore"))
             {
                 if(!NBTHelper.getBoolean(stack,"mining"))
                 {

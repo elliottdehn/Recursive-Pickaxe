@@ -38,11 +38,12 @@ public class ItemPawdiumAxe extends ItemPDTool
         {
             World world = player.worldObj;
             Block block = world.getBlock(x,y,z);
+            LogHelper.info(block.getUnlocalizedName());
             Block block2 = world.getBlock(x,y+1,z);
             Boolean stump = false;
             EntityPlayerMP mplayer = (EntityPlayerMP) player;
 
-            if(block.getMaterial() == Material.wood)
+            if(block.getUnlocalizedName().toLowerCase().contains("log"))
             {
                 LogHelper.info("Wooden block found");
                 if(!NBTHelper.getBoolean(stack, "chopping"))
