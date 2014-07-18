@@ -5,7 +5,7 @@ Time: 7/16/14 12:35 PM
 Description: Unexpected error
 
 java.lang.ClassCastException: net.minecraft.client.entity.EntityClientPlayerMP cannot be cast to net.minecraft.entity.player.EntityPlayerMP
-	at com.pawd.recursivepickaxe.item.ItemRecursivePickaxe.onBlockStartBreak(ItemRecursivePickaxe.java:26)
+	at com.pawd.pawdiumtools.item.ItemRecursivePickaxe.onBlockStartBreak(ItemRecursivePickaxe.java:26)
 	at net.minecraft.client.multiplayer.PlayerControllerMP.onPlayerDestroyBlock(PlayerControllerMP.java:132)
 	at net.minecraft.client.multiplayer.PlayerControllerMP.clickBlockCreative(PlayerControllerMP.java:81)
 	at net.minecraft.client.multiplayer.PlayerControllerMP.clickBlock(PlayerControllerMP.java:197)
@@ -39,7 +39,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 
 -- Head --
 Stacktrace:
-	at com.pawd.recursivepickaxe.item.ItemRecursivePickaxe.onBlockStartBreak(ItemRecursivePickaxe.java:26)
+	at com.pawd.pawdiumtools.item.ItemRecursivePickaxe.onBlockStartBreak(ItemRecursivePickaxe.java:26)
 	at net.minecraft.client.multiplayer.PlayerControllerMP.onPlayerDestroyBlock(PlayerControllerMP.java:132)
 	at net.minecraft.client.multiplayer.PlayerControllerMP.clickBlockCreative(PlayerControllerMP.java:81)
 	at net.minecraft.client.multiplayer.PlayerControllerMP.clickBlock(PlayerControllerMP.java:197)

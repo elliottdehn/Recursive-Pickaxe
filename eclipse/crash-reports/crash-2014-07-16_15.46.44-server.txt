@@ -5,7 +5,7 @@ Time: 7/16/14 3:46 PM
 Description: Ticking memory connection
 
 java.lang.NullPointerException: Ticking memory connection
-	at com.pawd.recursivepickaxe.item.ItemRecursivePickaxe.onBlockStartBreak(ItemRecursivePickaxe.java:43)
+	at com.pawd.pawdiumtools.item.ItemRecursivePickaxe.onBlockStartBreak(ItemRecursivePickaxe.java:43)
 	at net.minecraft.server.management.ItemInWorldManager.tryHarvestBlock(ItemInWorldManager.java:293)
 	at net.minecraft.server.management.ItemInWorldManager.onBlockClicked(ItemInWorldManager.java:168)
 	at net.minecraft.network.NetHandlerPlayServer.processPlayerDigging(NetHandlerPlayServer.java:523)
@@ -25,7 +25,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 
 -- Head --
 Stacktrace:
-	at com.pawd.recursivepickaxe.item.ItemRecursivePickaxe.onBlockStartBreak(ItemRecursivePickaxe.java:43)
+	at com.pawd.pawdiumtools.item.ItemRecursivePickaxe.onBlockStartBreak(ItemRecursivePickaxe.java:43)
 	at net.minecraft.server.management.ItemInWorldManager.tryHarvestBlock(ItemInWorldManager.java:293)
 	at net.minecraft.server.management.ItemInWorldManager.onBlockClicked(ItemInWorldManager.java:168)
 	at net.minecraft.network.NetHandlerPlayServer.processPlayerDigging(NetHandlerPlayServer.java:523)

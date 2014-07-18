@@ -1,0 +1,4 @@
+item.pawdiumtools:pawdiumPickaxe.name=Pawdium Pickaxe
+item.pawdiumtools:pawdium.name=Pawdium Ingot
+tile.pawdiumtools:pickaxeBlock.name=Pickaxe Block
+itemGroup.pawdiumtools=Pawdium Tools

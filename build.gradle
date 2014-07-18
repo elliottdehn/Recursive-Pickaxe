@@ -18,8 +18,8 @@ buildscript {
 apply plugin: 'forge'
 
 version = "1.0"
-group= "com.pawd.recursivepickaxe" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "recursivepickaxe"
+group= "com.pawd.pawdiumtools" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "pawdiumtools"
 
 minecraft {
     version = "1.7.10-10.13.0.1180"
