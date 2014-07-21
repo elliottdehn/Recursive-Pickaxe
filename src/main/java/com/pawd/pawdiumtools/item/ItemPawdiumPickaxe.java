@@ -65,6 +65,7 @@ public class ItemPawdiumPickaxe extends ItemPDTool
         int[] metas = new int[6];
 
         mplayer.theItemInWorldManager.tryHarvestBlock(x,y,z);
+        world.playAuxSFXAtEntity(null, 2001, x, y, z, Block.getIdFromBlock(block) + (meta << 12));
 
         blocks[0] = world.getBlock(x+1,y,z); metas[0] = world.getBlockMetadata(x+1,y,z);
         blocks[1] = world.getBlock(x-1,y,z); metas[1] = world.getBlockMetadata(x-1,y,z);

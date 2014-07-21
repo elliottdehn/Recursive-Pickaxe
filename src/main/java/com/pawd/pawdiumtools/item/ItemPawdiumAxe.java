@@ -55,6 +55,7 @@ public class ItemPawdiumAxe extends ItemPDTool
                     yPos--;
                     if(block2.getMaterial() == Material.wood) stump = true; else stump = false;
                     mplayer.theItemInWorldManager.tryHarvestBlock(x, yPos, z);
+                    world.playAuxSFXAtEntity(null, 2001, x, y, z, Block.getIdFromBlock(block) + (world.getBlockMetadata(x,y,z) << 12));
                 }
                 NBTHelper.setBoolean(stack, "chopping", false);
                 return stump;
