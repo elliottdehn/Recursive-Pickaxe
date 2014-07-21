@@ -11,6 +11,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class ItemPawdiumPickaxe extends ItemPDTool
 {
 
@@ -56,23 +59,67 @@ public class ItemPawdiumPickaxe extends ItemPDTool
         return super.onBlockStartBreak(stack,x,y,z,player);
     }
 
-    public void mineVein(Block block, int x, int y, int z, int meta, World world, EntityPlayerMP mplayer)
+    private void mineVein(Block block, int x, int y, int z, int meta, World world, EntityPlayerMP mplayer)
     {
-        for(int x2 = x - 1; x2 <= x + 1; x2++)
+        Block[] blocks = new Block[6];
+        int[] metas = new int[6];
+
+        mplayer.theItemInWorldManager.tryHarvestBlock(x,y,z);
+
+        blocks[0] = world.getBlock(x+1,y,z); metas[0] = world.getBlockMetadata(x+1,y,z);
+        blocks[1] = world.getBlock(x-1,y,z); metas[1] = world.getBlockMetadata(x-1,y,z);
+        blocks[2] = world.getBlock(x,y+1,z); metas[2] = world.getBlockMetadata(x,y+1,z);
+        blocks[3] = world.getBlock(x,y-1,z); metas[3] = world.getBlockMetadata(x,y-1,z);
+        blocks[4] = world.getBlock(x,y,z+1); metas[4] = world.getBlockMetadata(x,y,z+1);
+        blocks[5] = world.getBlock(x,y,z-1); metas[5] = world.getBlockMetadata(x,y,z-1);
+
+        for(int j = 0; j <= 5; j++)
         {
-            for(int y2 = y - 1; y2 <= y + 1; y2++)
+            if(blocks[j] == block && metas[j] == meta)
             {
-                for(int z2 = z - 1; z2 <= z + 1; z2++)
+                switch (j)
                 {
-                    Block block2 = world.getBlock(x2,y2,z2);
-                    if(block2 == block & world.getBlockMetadata(x2,y2,z2) == meta)
-                    {
-                        mplayer.theItemInWorldManager.tryHarvestBlock(x2,y2,z2);
-                        mineVein(block,x2,y2,z2,meta,world,mplayer);
-                    }
+                    case 0:
+                        delayMine(block,x+1,y,z,meta,world,mplayer);
+                        break;
+                    case 1:
+                        delayMine(block,x-1,y,z,meta,world,mplayer);
+                        break;
+                    case 2:
+                        delayMine(block,x,y+1,z,meta,world,mplayer);
+                        break;
+                    case 3:
+                        delayMine(block,x,y-1,z,meta,world,mplayer);
+                        break;
+                    case 4:
+                        delayMine(block,x,y,z+1,meta,world,mplayer);
+                        break;
+                    case 5:
+                        delayMine(block,x,y,z-1,meta,world,mplayer);
+                        break;
                 }
             }
         }
+    }
+
+    private void delayMine(Block block, int x, int y, int z, int meta, World world, EntityPlayerMP mplayer)
+    {
+        final Block fblock = block;
+        final int fx = x;
+        final int fy = y;
+        final int fz = z;
+        final int fmeta = meta;
+        final World fworld = world;
+        final EntityPlayerMP fplayer = mplayer;
+
+        new Timer().schedule(new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                mineVein(fblock,fx,fy,fz,fmeta,fworld,fplayer);
+            }
+        }, 200);
     }
 
     @Override
