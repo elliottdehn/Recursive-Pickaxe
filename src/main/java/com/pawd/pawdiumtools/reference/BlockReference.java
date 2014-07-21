@@ -21,4 +21,9 @@ public class BlockReference
                     Blocks.spruce_stairs, Blocks.birch_stairs, Blocks.jungle_stairs,
                     Blocks.acacia_stairs, Blocks.dark_oak_stairs
             });
+
+    public static final Block BLOCKS_SHOVEL[] = (new Block[]
+            {
+                    Blocks.dirt, Blocks.grass, Blocks.sand, Blocks.gravel
+            });
 }

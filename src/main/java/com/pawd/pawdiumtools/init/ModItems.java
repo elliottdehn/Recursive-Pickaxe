@@ -2,6 +2,7 @@ package com.pawd.pawdiumtools.init;
 
 import com.pawd.pawdiumtools.item.ItemPawdium;
 import com.pawd.pawdiumtools.item.ItemPawdiumAxe;
+import com.pawd.pawdiumtools.item.ItemPawdiumHoe;
 import com.pawd.pawdiumtools.item.ItemPawdiumPickaxe;
 import com.pawd.pawdiumtools.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -13,6 +14,7 @@ public class ModItems
 {
     public static final ItemPawdiumPickaxe pawdiumPickaxe = new ItemPawdiumPickaxe();
     public static final ItemPawdiumAxe pawdiumAxe = new ItemPawdiumAxe();
+    public static final ItemPawdiumHoe pawdiumHoe = new ItemPawdiumHoe();
 
     public static final ItemPawdium pawdium = new ItemPawdium();
 
@@ -20,6 +22,7 @@ public class ModItems
     {
         GameRegistry.registerItem(pawdiumPickaxe, "pawdiumPickaxe");
         GameRegistry.registerItem(pawdiumAxe, "pawdiumAxe");
+        GameRegistry.registerItem(pawdiumHoe, "pawdiumHoe");
 
         GameRegistry.registerItem(pawdium, "pawdium");
     }

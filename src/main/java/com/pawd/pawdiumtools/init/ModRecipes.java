@@ -28,6 +28,15 @@ public class ModRecipes
                         'Y', Items.stick
                 });
 
+        GameRegistry.addShapedRecipe(new ItemStack(ModItems.pawdiumHoe), new Object[]
+                {
+                        "XX ",
+                        " Y ",
+                        " Y ",
+                        'X', ModItems.pawdium,
+                        'Y', Items.stick
+                });
+
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.blockPawdium), new Object[]
                 {
                         "XXX",

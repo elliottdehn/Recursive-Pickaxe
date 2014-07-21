@@ -27,6 +27,7 @@ public class ItemPawdiumPickaxe extends ItemPDTool
     public void onCreated(ItemStack stack, World world, EntityPlayer player)
     {
         NBTHelper.setBoolean(stack, "mining", false);
+        NBTHelper.setBoolean(stack, "wasRedstone", false);
     }
 
     @Override
@@ -76,7 +77,7 @@ public class ItemPawdiumPickaxe extends ItemPDTool
 
         for(int j = 0; j <= 5; j++)
         {
-            if(blocks[j] == block && metas[j] == meta)
+            if((blocks[j] == block && metas[j] == meta) || ((blocks[j] == Blocks.lit_redstone_ore || blocks[j] == Blocks.redstone_ore) && (block == Blocks.lit_redstone_ore || block == Blocks.redstone_ore)))
             {
                 switch (j)
                 {

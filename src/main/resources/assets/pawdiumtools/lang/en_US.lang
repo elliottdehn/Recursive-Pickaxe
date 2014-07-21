@@ -1,5 +1,6 @@
 item.pawdiumtools:pawdiumPickaxe.name=Pawdium Pickaxe
 item.pawdiumtools:pawdiumAxe.name=Pawdium Axe
+item.pawdiumtools:pawdiumHoe.name=Pawdium Hoe
 item.pawdiumtools:pawdium.name=Pawdium Ingot
 tile.pawdiumtools:pawdiumBlock.name=Block of Pawdium
 itemGroup.pawdiumtools=Pawdium Tools
