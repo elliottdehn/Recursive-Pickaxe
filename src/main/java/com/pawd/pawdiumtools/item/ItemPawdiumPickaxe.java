@@ -119,37 +119,24 @@ public class ItemPawdiumPickaxe extends ItemPDTool
     private ArrayList<String> findOres(Block block, int x, int y, int z, int meta, World world, EntityPlayerMP mplayer, ArrayList list)
     {
 
-        Block[] blocks = new Block[6];
-        int[] metas = new int[6];
-        String[] coords = new String[6];
-        String[] parts;
-
-        blocks[0] = world.getBlock(x+1,y,z); metas[0] = world.getBlockMetadata(x+1,y,z);
-        blocks[1] = world.getBlock(x-1,y,z); metas[1] = world.getBlockMetadata(x-1,y,z);
-        blocks[2] = world.getBlock(x,y+1,z); metas[2] = world.getBlockMetadata(x,y+1,z);
-        blocks[3] = world.getBlock(x,y-1,z); metas[3] = world.getBlockMetadata(x,y-1,z);
-        blocks[4] = world.getBlock(x,y,z+1); metas[4] = world.getBlockMetadata(x,y,z+1);
-        blocks[5] = world.getBlock(x,y,z-1); metas[5] = world.getBlockMetadata(x,y,z-1);
-
-        coords[0] = String.valueOf(x+1) + "," + String.valueOf(y) + "," + String.valueOf(z);
-        coords[1] = String.valueOf(x-1) + "," + String.valueOf(y) + "," + String.valueOf(z);
-        coords[2] = String.valueOf(x) + "," + String.valueOf(y+1) + "," + String.valueOf(z);
-        coords[3] = String.valueOf(x) + "," + String.valueOf(y-1) + "," + String.valueOf(z);
-        coords[4] = String.valueOf(x) + "," + String.valueOf(y) + "," + String.valueOf(z+1);
-        coords[5] = String.valueOf(x) + "," + String.valueOf(y) + "," + String.valueOf(z-1);
-
-        for(int j = 0; j <= 5; j++)
+        for(int xPos = x - 1; xPos <= x + 1; xPos++)
         {
-            if((blocks[j] == block && metas[j] == meta) || ((blocks[j] == Blocks.lit_redstone_ore || blocks[j] == Blocks.redstone_ore) && (block == Blocks.lit_redstone_ore || block == Blocks.redstone_ore)))
+            for(int yPos = y - 1; yPos <= y + 1; yPos++)
             {
-                if(!list.contains(coords[j]))
+                for(int zPos = z - 1; zPos <= z + 1; zPos++)
                 {
-                    list.add(coords[j]);
-                    parts = coords[j].split(",");
-                    int xPos = Integer.parseInt(parts[0]);
-                    int yPos = Integer.parseInt(parts[1]);
-                    int zPos = Integer.parseInt(parts[2]);
-                    list = findOres(block,xPos,yPos,zPos,meta,world,mplayer,list);
+                    Block block2 = world.getBlock(xPos,yPos,zPos);
+                    int meta2 = world.getBlockMetadata(xPos,yPos,zPos);
+                    String coords = xPos + "," + yPos + "," + zPos;
+
+                    if ((block2 == block && meta2 == meta) || ((block2 == Blocks.lit_redstone_ore || block2 == Blocks.redstone_ore) && (block == Blocks.lit_redstone_ore || block == Blocks.redstone_ore)))
+                    {
+                        if (!list.contains(coords))
+                        {
+                            list.add(coords);
+                            list = findOres(block, xPos, yPos, zPos, meta, world, mplayer, list);
+                        }
+                    }
                 }
             }
         }
