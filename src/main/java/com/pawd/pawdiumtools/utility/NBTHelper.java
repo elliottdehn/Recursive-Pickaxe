@@ -1,7 +1,13 @@
 package com.pawd.pawdiumtools.utility;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraftforge.common.util.Constants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NBTHelper
 {
@@ -190,5 +196,40 @@ public class NBTHelper
         initNBTTagCompound(itemStack);
 
         itemStack.stackTagCompound.setDouble(keyName, keyValue);
+    }
+
+    //list
+    public static ArrayList<String> getStringList(ItemStack itemStack, String keyName)
+    {
+        initNBTTagCompound(itemStack);
+        ArrayList<String> strings = new ArrayList<String>();
+        int i = 0;
+
+        if(!itemStack.stackTagCompound.hasKey(keyName))
+        {
+            ArrayList<String> list = new ArrayList();
+            setStringList(itemStack, keyName, list);
+        }
+
+        NBTTagCompound tag = itemStack.stackTagCompound.getCompoundTag(keyName);
+        while(tag.hasKey(keyName+i))
+        {
+            strings.add(tag.getString(keyName+i));
+            i++;
+        }
+        return strings;
+    }
+
+    public static void setStringList(ItemStack itemStack, String keyName, ArrayList<String> keyValue)
+    {
+        initNBTTagCompound(itemStack);
+        NBTTagCompound tag = new NBTTagCompound();
+
+        for(int i = 0; i < keyValue.size(); i++)
+        {
+            tag.setString(keyName+i, keyValue.get(i));
+        }
+
+        itemStack.stackTagCompound.setTag(keyName, tag);
     }
 }

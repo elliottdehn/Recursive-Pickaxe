@@ -26,4 +26,9 @@ public class BlockReference
             {
                     Blocks.dirt, Blocks.grass, Blocks.sand, Blocks.gravel
             });
+
+    public static final Block BLOCKS_REDSTONE_ORE[] = (new Block[]
+            {
+                    Blocks.lit_redstone_ore, Blocks.redstone_ore
+            });
 }

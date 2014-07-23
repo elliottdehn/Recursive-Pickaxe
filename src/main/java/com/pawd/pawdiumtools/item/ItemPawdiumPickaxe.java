@@ -11,8 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class ItemPawdiumPickaxe extends ItemPDTool
 {
@@ -26,8 +25,8 @@ public class ItemPawdiumPickaxe extends ItemPDTool
     @Override
     public void onCreated(ItemStack stack, World world, EntityPlayer player)
     {
-        NBTHelper.setBoolean(stack, "mining", false);
-        NBTHelper.setBoolean(stack, "wasRedstone", false);
+        NBTHelper.setStringList(stack,"ores",new ArrayList<String>());
+        NBTHelper.setBoolean(stack,"manual",true);
     }
 
     @Override
@@ -40,33 +39,90 @@ public class ItemPawdiumPickaxe extends ItemPDTool
     @Override
     public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player)
     {
+        ArrayList<String> list;
+        list = NBTHelper.getStringList(stack,"ores");
+
         if(player instanceof EntityPlayerMP)
         {
             World world = player.worldObj;
             Block block = world.getBlock(x,y,z);
+            int meta = world.getBlockMetadata(x,y,z);
             EntityPlayerMP mplayer = (EntityPlayerMP) player;
 
             if(block.getUnlocalizedName().toLowerCase().contains("ore"))
             {
-                if(!NBTHelper.getBoolean(stack,"mining"))
+                if(NBTHelper.getBoolean(stack,"manual"))
                 {
-                    NBTHelper.setBoolean(stack, "mining", true);
-                    mineVein(block,x,y,z,world.getBlockMetadata(x,y,z),world,mplayer);
+                    if(!list.isEmpty())
+                    {
+                        if (list.get(0).equals(x + "," + y + "," + z))
+                        {
+                            if (list.size() == 1)
+                            {
+                                list.remove(0);
+                                NBTHelper.setStringList(stack, "ores", list);
+                                return false;
+                            } else
+                            {
+                                String[] coords = list.get(list.size() - 1).split(",");
+                                int xPos = Integer.parseInt(coords[0]);
+                                int yPos = Integer.parseInt(coords[1]);
+                                int zPos = Integer.parseInt(coords[2]);
+                                Block block2 = world.getBlock(xPos,yPos,zPos);
+                                int meta2 = world.getBlockMetadata(xPos,yPos,zPos);
+                                if(!(block2 == block && meta2 == meta))
+                                {
+                                    if(!(block == Blocks.redstone_ore || block == Blocks.lit_redstone_ore))
+                                    {
+                                        list.remove(list.size() - 1);
+                                        NBTHelper.setStringList(stack, "ores", list);
+                                        mplayer.theItemInWorldManager.tryHarvestBlock(x, y, z);
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        if(!(block2 == Blocks.redstone_ore || block2 == Blocks.lit_redstone_ore))
+                                        {
+                                            list.remove(list.size() - 1);
+                                            NBTHelper.setStringList(stack, "ores", list);
+                                            mplayer.theItemInWorldManager.tryHarvestBlock(x, y, z);
+                                            return true;
+                                        }
+                                    }
+                                }
+                                NBTHelper.setBoolean(stack, "manual", false);
+                                mplayer.theItemInWorldManager.tryHarvestBlock(xPos, yPos, zPos);
+                                world.playAuxSFXAtEntity(null, 2001, xPos, yPos, zPos, Block.getIdFromBlock(block) + (world.getBlockMetadata(xPos, yPos, zPos) << 12));
+                                list.remove(list.size() - 1);
+                                NBTHelper.setStringList(stack, "ores", list);
+                                return true;
+                            }
+                        }
+                        else list = new ArrayList<String>();
+                    }
+
+                    if(list.isEmpty())
+                    {
+                        list.add(x + "," + y + "," + z);
+                        list = findOres(block, x, y, z, world.getBlockMetadata(x, y, z), world, mplayer, list);
+                        NBTHelper.setStringList(stack, "ores", list);
+                        mplayer.theItemInWorldManager.tryHarvestBlock(x,y,z);
+                        return true;
+                    }
                 }
-                NBTHelper.setBoolean(stack, "mining", false);
-                return false;
             }
         }
+        NBTHelper.setBoolean(stack,"manual",true);
         return super.onBlockStartBreak(stack,x,y,z,player);
     }
 
-    private void mineVein(Block block, int x, int y, int z, int meta, World world, EntityPlayerMP mplayer)
+    private ArrayList<String> findOres(Block block, int x, int y, int z, int meta, World world, EntityPlayerMP mplayer, ArrayList list)
     {
+
         Block[] blocks = new Block[6];
         int[] metas = new int[6];
-
-        mplayer.theItemInWorldManager.tryHarvestBlock(x,y,z);
-        world.playAuxSFXAtEntity(null, 2001, x, y, z, Block.getIdFromBlock(block) + (meta << 12));
+        String[] coords = new String[6];
+        String[] parts;
 
         blocks[0] = world.getBlock(x+1,y,z); metas[0] = world.getBlockMetadata(x+1,y,z);
         blocks[1] = world.getBlock(x-1,y,z); metas[1] = world.getBlockMetadata(x-1,y,z);
@@ -75,53 +131,29 @@ public class ItemPawdiumPickaxe extends ItemPDTool
         blocks[4] = world.getBlock(x,y,z+1); metas[4] = world.getBlockMetadata(x,y,z+1);
         blocks[5] = world.getBlock(x,y,z-1); metas[5] = world.getBlockMetadata(x,y,z-1);
 
+        coords[0] = String.valueOf(x+1) + "," + String.valueOf(y) + "," + String.valueOf(z);
+        coords[1] = String.valueOf(x-1) + "," + String.valueOf(y) + "," + String.valueOf(z);
+        coords[2] = String.valueOf(x) + "," + String.valueOf(y+1) + "," + String.valueOf(z);
+        coords[3] = String.valueOf(x) + "," + String.valueOf(y-1) + "," + String.valueOf(z);
+        coords[4] = String.valueOf(x) + "," + String.valueOf(y) + "," + String.valueOf(z+1);
+        coords[5] = String.valueOf(x) + "," + String.valueOf(y) + "," + String.valueOf(z-1);
+
         for(int j = 0; j <= 5; j++)
         {
             if((blocks[j] == block && metas[j] == meta) || ((blocks[j] == Blocks.lit_redstone_ore || blocks[j] == Blocks.redstone_ore) && (block == Blocks.lit_redstone_ore || block == Blocks.redstone_ore)))
             {
-                switch (j)
+                if(!list.contains(coords[j]))
                 {
-                    case 0:
-                        delayMine(block,x+1,y,z,meta,world,mplayer);
-                        break;
-                    case 1:
-                        delayMine(block,x-1,y,z,meta,world,mplayer);
-                        break;
-                    case 2:
-                        delayMine(block,x,y+1,z,meta,world,mplayer);
-                        break;
-                    case 3:
-                        delayMine(block,x,y-1,z,meta,world,mplayer);
-                        break;
-                    case 4:
-                        delayMine(block,x,y,z+1,meta,world,mplayer);
-                        break;
-                    case 5:
-                        delayMine(block,x,y,z-1,meta,world,mplayer);
-                        break;
+                    list.add(coords[j]);
+                    parts = coords[j].split(",");
+                    int xPos = Integer.parseInt(parts[0]);
+                    int yPos = Integer.parseInt(parts[1]);
+                    int zPos = Integer.parseInt(parts[2]);
+                    list = findOres(block,xPos,yPos,zPos,meta,world,mplayer,list);
                 }
             }
         }
-    }
-
-    private void delayMine(Block block, int x, int y, int z, int meta, World world, EntityPlayerMP mplayer)
-    {
-        final Block fblock = block;
-        final int fx = x;
-        final int fy = y;
-        final int fz = z;
-        final int fmeta = meta;
-        final World fworld = world;
-        final EntityPlayerMP fplayer = mplayer;
-
-        new Timer().schedule(new TimerTask()
-        {
-            @Override
-            public void run()
-            {
-                mineVein(fblock,fx,fy,fz,fmeta,fworld,fplayer);
-            }
-        }, 200);
+        return list;
     }
 
     @Override
